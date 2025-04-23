@@ -1,0 +1,77 @@
+/* layout.css */
+:root {
+    --primary-color: #411e0c;
+    --primary-hover: #d8711d;
+    --primary-light: #d8711d;
+    --secondary-color: #693000;
+    --text-dark: #1f2937;
+    --text-medium: #604a45;
+    --text-light: #6b7280;
+    --bg-light: #f9fafb;
+    --border-light: #e5e7eb;
+    --border-radius: 0.5rem;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --transition: all 0.2s ease-out;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--light-bg);
+    color: var(--dark-text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    flex: 1;
+    min-height: 100vh;
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 2rem;
+    margin-top: 2rem;
+
+}
+
+footer {
+    background-color: var(--secondary-color);
+    color: var(--light-text);
+    padding: 2rem;
+    text-align: center;
+    margin-top: 3rem;
+    width: 100%;
+}
+
+footer p {
+    max-width: 800px;
+    margin: 0 auto;
+
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+}

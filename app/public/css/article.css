@@ -1,0 +1,391 @@
+:root {
+    /* Palette de couleurs professionnelle */
+    --primary: #693000;
+    --primary-hover: #d8711d;
+    --accent: #d8711d;
+    --text: #1e293b;
+    --text-light: #64748b;
+    --bg: #f8fafc;
+    --card-bg: #ffffff;
+    --border: #e2e8f0;
+    --radius: 8px;
+    --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Couleurs de catégories harmonieuses */
+    --category-sport: #dc2626;
+    --category-sante: #db2777;
+    --category-education: #0891b2;
+    --category-politique: #7c3aed;
+    --category-culture: #ca8a04;
+    --category-technologie: #0d9488;
+    --category-environnement: #16a34a;
+    --category-economie: #ea580c;
+}
+
+/* Base typographique améliorée */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    color: var(--text);
+    background-color: var(--bg);
+}
+
+/* Container principal repensé */
+.article-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+    min-height: calc(100vh - 200px);
+}
+
+/* Carte d'article complètement repensée */
+.article-full {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 3rem;
+    border: 1px solid var(--border);
+    box-shadow: 0 8px 20px -5px rgba(0, 0, 0, 0.15);
+    position: relative;
+}
+
+/* Design amélioré pour l'image de catégorie */
+.article-category-image {
+    height: 350px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Ajout d'un overlay pour ajouter de la profondeur à l'image */
+.article-category-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.6) 100%);
+    z-index: 1;
+}
+
+/* Design pour la bannière de catégorie */
+.article-category-banner {
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 0.8rem 1.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.9rem;
+    display: inline-block;
+    margin: 2rem 0 0 2rem;
+    border-radius: 6px;
+    backdrop-filter: blur(8px);
+    border-left: 4px solid;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Titre de l'article sur l'image */
+.article-hero-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2.5rem 2rem;
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.3;
+    z-index: 2;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Ajout des images spécifiques par catégorie */
+.category-sport {
+    background-image: url('/mglsi_news/app/public/images/sport.png');
+    background-color: var(--category-sport);
+}
+
+.category-sante {
+    background-image: url('/mglsi_news/app/public/images/sante.png');
+    background-color: var(--category-sante);
+}
+
+.category-education {
+    background-image: url('/mglsi_news/app/public/images/education.png');
+    background-color: var(--category-education);
+}
+
+.category-politique {
+    background-image: url('/mglsi_news/app/public/images/politique.png');
+    background-color: var(--category-politique);
+}
+
+/* Couleurs spécifiques pour les tags de catégories */
+.category-sport .article-category-banner {
+    border-left-color: var(--category-sport);
+}
+
+.category-sante .article-category-banner {
+    border-left-color: var(--category-sante);
+}
+
+.category-education .article-category-banner {
+    border-left-color: var(--category-education);
+}
+
+.category-politique .article-category-banner {
+    border-left-color: var(--category-politique);
+}
+
+/* En-tête amélioré */
+.article-header {
+    padding: 1.8rem 2rem 1rem;
+    background: #ffffff;
+    z-index: 1;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+}
+
+.article-meta {
+    display: flex;
+    gap: 2rem;
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    align-items: center;
+}
+
+.article-meta i {
+    margin-right: 0.5rem;
+    color: var(--accent);
+}
+
+.article-updated {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+}
+
+/* Contenu repensé pour une meilleure lisibilité */
+.article-content {
+    padding: 2rem 2.5rem 2.5rem;
+    color: var(--text);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    position: relative;
+}
+
+.article-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, var(--accent), var(--primary));
+    border-radius: 2px;
+}
+
+.article-content p {
+    margin-bottom: 1.5rem;
+}
+
+.article-content p:first-child {
+    font-size: 1.2rem;
+    color: var(--text);
+    line-height: 1.9;
+    font-weight: 500;
+}
+
+.article-content p:first-child::first-letter {
+    font-size: 3rem;
+    float: left;
+    line-height: 1;
+    margin-right: 0.8rem;
+    color: var(--primary);
+    font-weight: 700;
+}
+
+/* Pied de page amélioré */
+.article-footer {
+    padding: 1.5rem 2rem;
+    border-top: 1px solid var(--border);
+    background: var(--card-bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.back-to-category {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius);
+    transition: var(--transition);
+    background-color: rgba(105, 48, 0, 0.1);
+}
+
+.back-to-category:hover {
+    background-color: rgba(105, 48, 0, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.back-to-category i {
+    transition: var(--transition);
+}
+
+.back-to-category:hover i {
+    transform: translateX(-4px);
+}
+
+/* Section des articles similaires repensée */
+.related-articles {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 2.5rem;
+    border: 1px solid var(--border);
+    box-shadow: 0 8px 20px -5px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.related-articles::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, var(--primary), var(--accent));
+}
+
+.related-title {
+    font-size: 1.5rem;
+    margin: 0 0 1.8rem 0;
+    color: var(--text);
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+}
+
+.related-title::before {
+    content: '\f15c';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: var(--accent);
+    margin-right: 0.8rem;
+    font-size: 1.25rem;
+}
+
+.related-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background: var(--primary);
+}
+
+.related-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.related-article {
+    color: var(--text);
+    text-decoration: none;
+    padding: 1.2rem 1.5rem;
+    border-radius: 8px;
+    transition: var(--transition);
+    border-left: 4px solid var(--primary);
+    background: rgba(241, 245, 249, 0.5);
+    display: block;
+    font-weight: 500;
+}
+
+.related-article:hover {
+    background: rgba(226, 232, 240, 0.7);
+    transform: translateX(5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Animation sur la carte */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.article-full {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.related-articles {
+    animation: fadeInUp 0.7s ease-out;
+}
+
+/* Responsive amélioré */
+@media (max-width: 768px) {
+    .article-container {
+        padding: 0 1rem;
+        margin: 1rem auto;
+    }
+
+    .article-hero-title {
+        font-size: 1.8rem;
+        padding: 1.5rem;
+    }
+
+    .article-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .article-content,
+    .article-header {
+        padding: 1.5rem;
+    }
+
+    .article-content {
+        font-size: 1rem;
+    }
+
+    .article-category-image {
+        height: 250px;
+    }
+
+    .article-category-banner {
+        margin: 1.2rem 0 0 1.2rem;
+        font-size: 0.8rem;
+        padding: 0.6rem 1.2rem;
+    }
+
+    .related-articles {
+        padding: 1.5rem;
+    }
+
+    .article-footer {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .back-to-category {
+        width: 100%;
+        justify-content: center;
+    }
+}

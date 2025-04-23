@@ -1,0 +1,105 @@
+/* header.css - Version Améliorée */
+:root {
+    --primary-color: #3a1c0a;
+    --secondary-color: #6b4f3d;
+    --accent-color: #d8711d;
+    --accent-hover: #e98a3a;
+    --light-text: #fff;
+    --header-gradient: linear-gradient(135deg, var(--primary-color) 0%, #502914 100%);
+    --header-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    --logo-glow: 0 0 15px rgba(216, 113, 29, 0.5);
+}
+
+header {
+    background: var(--header-gradient);
+    box-shadow: var(--header-shadow);
+    top: 0;
+    z-index: 1000;
+    font-family: 'Poppins', sans-serif;
+    padding: 0.5rem 0;
+    border-bottom: 3px solid var(--accent-color);
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 2rem;
+    position: relative;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 0.5rem 0;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: translateY(-2px);
+}
+
+.logo h1 {
+    color: var(--light-text);
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.logo-icon {
+    color: var(--accent-color);
+    font-size: 2rem;
+    margin-right: 1rem;
+    filter: drop-shadow(0 0 5px rgba(216, 113, 29, 0.5));
+    animation: pulse 3s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.9; }
+    50% { opacity: 1; }
+    100% { opacity: 0.9; }
+}
+
+/* Effet de lumière sous le logo */
+.logo::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 25%;
+    width: 50%;
+    height: 2px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+    box-shadow: var(--logo-glow);
+    opacity: 0;
+    transition: opacity 0.3s ease, width 0.3s ease, left 0.3s ease;
+}
+
+.logo:hover::after {
+    opacity: 1;
+    width: 70%;
+    left: 15%;
+}
+
+/* Adaptation mobile */
+@media (max-width: 768px) {
+    .header-container {
+        padding: 0.8rem 1.2rem;
+    }
+
+    .logo h1 {
+        font-size: 1.5rem;
+    }
+
+    .logo-icon {
+        font-size: 1.6rem;
+    }
+}
+
+
+
