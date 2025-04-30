@@ -1,8 +1,7 @@
 <?php
-global $article;
 $category_slug = strtolower(trim($article['libelle']));
 ?>
-
+<main class="article-container">
     <article class="article-full">
         <div class="article-category-image category-<?php echo htmlspecialchars($category_slug); ?>">
         <span class="article-category-banner">
@@ -17,12 +16,7 @@ $category_slug = strtolower(trim($article['libelle']));
                     <i class="far fa-calendar-alt"></i>
                     Publié le <?= date('d/m/Y', strtotime($article['dateCreation'])) ?>
                 </time>
-                <?php if ($article['dateModification']): ?>
-                    <span class="article-updated">
-                    <i class="fas fa-pencil-alt"></i>
-                    Mis à jour le <?= date('d/m/Y', strtotime($article['dateModification'])) ?>
-                </span>
-                <?php endif; ?>
+
             </div>
         </header>
 
@@ -31,7 +25,7 @@ $category_slug = strtolower(trim($article['libelle']));
         </div>
 
         <footer class="article-footer">
-            <a href="categorie.php?id=<?= $article['categorie'] ?>" class="back-to-category">
+            <a href="index.php?category=<?= $article['categorie'] ?>" class="back-to-category">
                 <i class="fas fa-arrow-left"></i> Retour à la catégorie
             </a>
         </footer>
@@ -42,10 +36,11 @@ $category_slug = strtolower(trim($article['libelle']));
         <h2 class="related-title">Articles similaires</h2>
         <div class="related-list">
             <?php foreach ($relatedArticles as $related): ?>
-                <a href="article.php?id=<?= $related['id'] ?>" class="related-article">
+                <a href="index.php?article=<?= $related['id'] ?>" class="related-article">
                     <?= htmlspecialchars($related['titre']) ?>
                 </a>
             <?php endforeach; ?>
         </div>
     </aside>
 <?php endif; ?>
+</main>

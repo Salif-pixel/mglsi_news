@@ -1,6 +1,4 @@
-<?php
-global $catId, $all_categories;
-?>
+
 
 <!-- Navigation des catégories - Desktop -->
 <nav class="categories-nav">
@@ -15,7 +13,7 @@ global $catId, $all_categories;
             </li>
             <?php foreach($all_categories as $category): ?>
                 <li>
-                    <a href="categorie.php?id=<?= $category['id'] ?>"
+                    <a href="index.php?category=<?= $category['id'] ?>"
                         <?= ($catId == $category['id']) ? 'class="active"' : '' ?>>
                         <?= htmlspecialchars($category['libelle']) ?>
                     </a>
